@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Intro FireStore</string>
+    <string name="enter_title_hint">Enter Title</string>
+    <string name="enter_thought_hint">Enter your thought</string>
+</resources>
