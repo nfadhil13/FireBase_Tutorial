@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/background"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    tools:context=".view.ui.MainActivity">
+
+    <ProgressBar
+        android:layout_centerInParent="true"
+        android:id="@+id/progressbar_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_centerInParent="true"
+        android:padding="24dp"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/app_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"/>
+
+        <TextView
+            android:textColor="@color/colorAccent"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            android:textStyle="bold"
+            android:text="Welcome To The Life Of Music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <EditText
+            android:textColorHint="@android:color/black"
+            android:alpha="0.6"
+            android:backgroundTint="@android:color/black"
+            android:padding="20dp"
+            android:id="@+id/edit_text_signup_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/username_label"
+            android:maxLines="1"
+            />
+
+        <AutoCompleteTextView
+            android:textColorHint="@android:color/black"
+            android:alpha="0.6"
+            android:backgroundTint="@android:color/black"
+            android:id="@+id/edit_text_signup_email"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/auto_tv_email_hint"
+            android:maxLines="1"
+            android:inputType="textEmailAddress"
+            />
+
+        <EditText
+            android:textColorHint="@android:color/black"
+            android:alpha="0.6"
+            android:backgroundTint="@android:color/black"
+            android:id="@+id/edit_text_signup_password"
+            android:padding="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/edit_text_password_label"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            />
+
+        <Button
+            android:id="@+id/btn_signup_signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorPrimary"
+            android:shadowRadius="0"
+            android:textColor="@color/colorAccent"
+            android:text="@string/sing_up_label" />
+
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

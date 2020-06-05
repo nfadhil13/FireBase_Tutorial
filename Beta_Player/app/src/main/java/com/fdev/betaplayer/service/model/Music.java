@@ -1,20 +1,22 @@
 package com.fdev.betaplayer.service.model;
 
+import com.google.firebase.Timestamp;
+
 public class Music {
 
     private String title;
-    private String singer;
+    private String PostByUID;
     private String postBy;
-    private Long postTime;
+    private Timestamp postTime;
     private String imageURL;
     private String musicURL;
 
     public Music() {
     }
 
-    public Music(String title, String singer, String postBy, Long postTime, String imageURL, String musicURL) {
+    public Music(String title, String PostByUID, String postBy, Timestamp postTime, String imageURL, String musicURL) {
         this.title = title;
-        this.singer = singer;
+        this.PostByUID = PostByUID;
         this.postBy = postBy;
         this.postTime = postTime;
         this.imageURL = imageURL;
@@ -29,12 +31,12 @@ public class Music {
         this.title = title;
     }
 
-    public String getSinger() {
-        return singer;
+    public String getPostByUID() {
+        return PostByUID;
     }
 
-    public void setSinger(String singer) {
-        this.singer = singer;
+    public void setPostByUID(String postByUID) {
+        this.PostByUID = postByUID;
     }
 
     public String getPostBy() {
@@ -45,11 +47,11 @@ public class Music {
         this.postBy = postBy;
     }
 
-    public Long getPostTime() {
+    public Timestamp getPostTime() {
         return postTime;
     }
 
-    public void setPostTime(Long postTime) {
+    public void setPostTime(Timestamp postTime) {
         this.postTime = postTime;
     }
 

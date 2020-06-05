@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.ui.PostMusicActivity">
+
+    <ProgressBar
+        android:id="@+id/add_music_progressbar"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            >
+
+
+            <ImageView
+                android:contentDescription="@string/add_music_image_contentdesc"
+                android:id="@+id/add_music_imageview_musicimage"
+                android:src="@android:color/black"
+                android:layout_centerInParent="true"
+                android:layout_width="128dp"
+                android:layout_height="128dp"/>
+
+            <ImageButton
+                android:id="@+id/add_music_btn_addImage"
+                android:contentDescription="@string/add_music_image_btn_contentdesc"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerInParent="true"
+                />
+            <TextView
+                android:layout_marginTop="10dp"
+                android:text="@string/add_music_photo_instruction_label"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/add_music_imageview_musicimage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:padding="20dp"
+            >
+
+            <EditText
+                android:padding="20dp"
+                android:hint="@string/add_music_title_label"
+                android:id="@+id/add_music_edit_text_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <AutoCompleteTextView
+                android:maxLines="1"
+                android:hint="@string/add_music_file_destination_hint"
+                android:id="@+id/add_music_edit_text_musicfile"
+                android:padding="20dp"
+                android:layout_below="@+id/add_music_edit_text_title"
+                android:layout_width="wrap_content"
+                android:ellipsize="end"
+                android:layout_toStartOf="@+id/add_music_btn_addfile"
+                android:layout_alignParentLeft="true"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/add_music_btn_addfile"
+                android:layout_marginTop="5dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@+id/add_music_edit_text_title"
+                android:layout_width="wrap_content"
+                android:ellipsize="end"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/add_music_btn_save"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/add_music_btn_addfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+        </RelativeLayout>
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/my_exo_player"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"/>
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

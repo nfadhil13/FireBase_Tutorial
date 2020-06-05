@@ -1,4 +1,21 @@
 <resources>
     <string name="app_name">Beta Player</string>
     <string name="my_app_id">betaplayer-vejni</string>
+
+
+<!--    Log In SignUp Activity-->
+    <string name="edit_text_login_label">Username</string>
+    <string name="edit_text_password_label">password</string>
+    <string name="auto_tv_email_hint">email</string>
+    <string name="login_label">login</string>
+    <string name="sing_up_label">create account</string>
+    <string name="username_label">username</string>
+
+
+    <!--    For Add Music Activity-->
+    <string name="add_music_image_contentdesc">Add Music Image</string>
+    <string name="add_music_image_btn_contentdesc">Button to add Image</string>
+    <string name="add_music_title_label">music title</string>
+    <string name="add_music_file_destination_hint">your music file destination</string>
+    <string name="add_music_photo_instruction_label">Add your music photo here</string>
 </resources>
