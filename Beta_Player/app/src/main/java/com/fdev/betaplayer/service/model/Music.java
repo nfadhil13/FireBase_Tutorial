@@ -2,7 +2,9 @@ package com.fdev.betaplayer.service.model;
 
 import com.google.firebase.Timestamp;
 
-public class Music {
+import java.io.Serializable;
+
+public class Music implements Serializable {
 
     private String title;
     private String PostByUID;

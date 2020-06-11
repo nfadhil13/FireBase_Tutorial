@@ -2,7 +2,6 @@ package com.fdev.betaplayer.view.ui;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
@@ -182,7 +181,7 @@ public class PostMusicActivity extends AppCompatActivity implements View.OnClick
             if(s!=null){
                 String title = mEditTextTitle.getText().toString();
                 Music music = new Music();
-                music.setTitle(music.getTitle());
+                music.setTitle(title);
                 music.setImageURL(mUploadViewModel.getUploadImageFileURL().getValue());
                 music.setMusicURL(s);
                 music.setPostTime(new Timestamp(new Date()));
@@ -197,6 +196,7 @@ public class PostMusicActivity extends AppCompatActivity implements View.OnClick
         mMusicViewModel.getIsDone().observe(this,isDone->{
             if(isDone){
                 mProgressBar.setVisibility(View.INVISIBLE);
+                shortToast("Upload succes");
                 Intent intent=new Intent(PostMusicActivity.this,MusicListActivity.class);
                 startActivity(intent);
             }else{

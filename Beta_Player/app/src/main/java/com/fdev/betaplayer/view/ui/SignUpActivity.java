@@ -17,9 +17,6 @@ import android.widget.Toast;
 import com.fdev.betaplayer.R;
 import com.fdev.betaplayer.service.model.User;
 import com.fdev.betaplayer.viewmodel.UserViewModel;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignUpActivity extends AppCompatActivity {
 
@@ -27,7 +24,7 @@ public class SignUpActivity extends AppCompatActivity {
 
     private Button mBtnSignUp;
     private ProgressBar mProgressBar;
-    private EditText mEditTextEmail , mEditTextUsername , mEditTextPassword;
+    private EditText mEditTextPhoneNumber, mEditTextUsername , mEditTextPassword;
     private UserViewModel mUserViewModel;
 
     @Override
@@ -37,31 +34,50 @@ public class SignUpActivity extends AppCompatActivity {
 
         mBtnSignUp = findViewById(R.id.btn_signup_signup);
         mProgressBar = findViewById(R.id.progressbar_signup);
-        mEditTextEmail = findViewById(R.id.edit_text_signup_email);
-        mEditTextPassword = findViewById(R.id.edit_text_signup_password);
+        mEditTextPhoneNumber = findViewById(R.id.edit_text_signup_phone_number);
         mEditTextUsername = findViewById(R.id.edit_text_signup_username);
 
         mUserViewModel = new ViewModelProvider(this).get(UserViewModel.class);
-        mUserViewModel.getCurrentUser().observe(this, user -> {
-            mProgressBar.setVisibility(View.INVISIBLE);
-            Log.d("user changed" , "user changed");
-            //Log in Success
-            if(user != null){
-                Intent intent = new Intent(SignUpActivity.this,MusicListActivity.class);
-                intent.putExtra(KEY_USER_SIGNEDUP,user);
-                startActivity(intent);
-            }else{
-                Toast.makeText(SignUpActivity.this,
-                        "The email address is already in use by another account.",
-                        Toast.LENGTH_SHORT).show();
-                // lOG IN FIAL
-            }
-        });
+
         mProgressBar.setVisibility(View.INVISIBLE);
         mBtnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 signUp();
+            }
+        });
+
+        mUserViewModel.getIsExist().observe(this , isUsernameExist ->{
+            if(isUsernameExist){
+                Log.d("PROSES SIGN UP" , " username udah ada");
+                Toast.makeText(SignUpActivity.this,"Your number has registered" , Toast.LENGTH_LONG);
+            }else{
+                Log.d("PROSES SIGN UP" , " username ga ada");
+                String phoneNumber = mEditTextPhoneNumber.getText().toString().trim();
+                mUserViewModel.logIn(phoneNumber);
+            }
+        });
+
+        mUserViewModel.getCurrentUser().observe(this, user -> {
+            mProgressBar.setVisibility(View.INVISIBLE);
+            if(user!= null){
+                Log.d("PROSES SIGN UP" , "nomer udah ada");
+                Toast.makeText(SignUpActivity.this,"Your number has registered" , Toast.LENGTH_LONG);
+            }else{
+                Log.d("PROSES SIGN UP" , " nomer ga ada");
+                String phoneNumber = mEditTextPhoneNumber.getText().toString().trim();
+                String username = mEditTextUsername.getText().toString().trim();
+
+                if(!TextUtils.isEmpty(phoneNumber) && !TextUtils.isEmpty(username)){
+                    User tempUser = new User();
+                    tempUser.setUsername(username);
+                    tempUser.setPhoneNumber(phoneNumber);
+
+                    Intent intent = new Intent(SignUpActivity.this,VerifyActivity.class);
+                    intent.putExtra(KEY_USER_SIGNEDUP,tempUser);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -71,20 +87,14 @@ public class SignUpActivity extends AppCompatActivity {
     }
 
     private void signUp() {
-        if(!TextUtils.isEmpty(mEditTextEmail.getText())){
+        if(!TextUtils.isEmpty(mEditTextPhoneNumber.getText())){
             if(!TextUtils.isEmpty(mEditTextUsername.getText())){
-                if(!TextUtils.isEmpty(mEditTextPassword.getText())){
                     mProgressBar.setVisibility(View.VISIBLE);
                     mBtnSignUp.setEnabled(false);
-                    String email = mEditTextEmail.getText().toString().trim();
                     String username = mEditTextUsername.getText().toString().trim();
-                    String password = mEditTextPassword.getText().toString().trim();
+                    mUserViewModel.checkUsername(username);
+                    Log.d("PROSES SIGN UP" , " CHECK LOG IN");
 
-
-                    mUserViewModel.signUp(new User(username,email),password);
-                }else{
-                    Toast.makeText(this,"Password must be filled", Toast.LENGTH_LONG).show();
-                }
             }else{
                 Toast.makeText(this,"Username must be filled",Toast.LENGTH_LONG).show();
             }

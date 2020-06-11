@@ -67,12 +67,16 @@ public class MusicListRecylerViewAdapter extends RecyclerView.Adapter<MusicListR
             mTextViewPostBy = itemView.findViewById(R.id.music_item_tv_post_by);
             mImageView = itemView.findViewById(R.id.music_item_imageview);
             mImageView.setOnClickListener(this);
+            mTextViewTitle.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View v) {
             if(v.getId()==R.id.music_item_imageview){
-                onPlayClickedListener.onClickListener(getAdapterPosition());
+                onPlayClickedListener.onClickImageListener(getAdapterPosition());
+            }
+            if(v.getId()==R.id.music_item_tv_title){
+                onPlayClickedListener.onClickMoreListener(getAdapterPosition());
             }
         }
 
@@ -80,6 +84,7 @@ public class MusicListRecylerViewAdapter extends RecyclerView.Adapter<MusicListR
     }
 
     public  interface OnPlayClickedListener{
-        public void onClickListener(int position);
+        public void onClickImageListener(int position);
+        public void onClickMoreListener(int position);
     }
 }

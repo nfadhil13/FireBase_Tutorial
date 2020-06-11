@@ -9,11 +9,16 @@ public class UserSingleton  {
     private User user;
     private static UserSingleton instance;
 
-    private UserSingleton(){}
+    public UserSingleton(){}
 
     public static UserSingleton getInstance(){
         if(instance==null){
-            instance = new UserSingleton();
+            synchronized (UserSingleton.class){
+                if(instance==null){
+                    instance = new UserSingleton();
+                }
+            }
+
         }
         return instance;
     }

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    android:padding="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginBottom="15dp"
+        android:id="@+id/popop_layout_add_to_queue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/popup_imageview_addtoplaylist"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/add_toplaylist_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"/>
+        <TextView
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/popup_imageview_addtoplaylist"
+            android:text="Add To Queue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginBottom="20dp"
+        android:id="@+id/popop_layout_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/popup_imageview_share"
+            android:layout_alignParentStart="true"
+            android:src="@drawable/ic_baseline_share_24"
+            android:layout_width="48dp"
+            android:layout_height="48dp"/>
+        <TextView
+            android:textColor="@android:color/black"
+            android:layout_marginLeft="10dp"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@id/popup_imageview_share"
+            android:text="Share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:background="@null"
+        android:text="cancel"
+        android:layout_height="wrap_content"/>
+
+
+
+</LinearLayout>

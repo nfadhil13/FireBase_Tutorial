@@ -1,26 +1,24 @@
 package com.fdev.betaplayer.service.model;
 
-import com.google.firebase.firestore.Exclude;
-
 import java.io.Serializable;
 
 public class User implements Serializable {
     private String uid;
     private String username;
     @SuppressWarnings("WeakerAccess")
-    private String email;
+    private String phoneNumber;
 
     public User() {}
 
-    public User(String username, String email) {
-        this.username = username;
-        this.email = email;
+    public User(String uid, String phoneNumber) {
+        this.uid = uid;
+        this.phoneNumber = phoneNumber;
     }
 
-    public User(String uid, String username, String email) {
+    public User(String uid, String username, String phoneNumber) {
         this.uid = uid;
         this.username = username;
-        this.email = email;
+        this.phoneNumber = phoneNumber;
     }
 
     public String getUid() {
@@ -39,13 +37,12 @@ public class User implements Serializable {
         this.username = username;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
-
 }
 

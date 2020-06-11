@@ -2,37 +2,51 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.ui.MusicListActivity">
+
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_weight="0.075"
-        android:layout_height="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="0.075">
 
         <Button
             android:id="@+id/music_list_add_music"
-            android:text="add"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="add" />
+
+        <Button
+            android:id="@+id/music_list_signout"
+            android:layout_toRightOf="@id/music_list_add_music"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sign Out"
+            />
 
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        tools:listitem="@layout/music_row"
         android:id="@+id/music_list_recylerview"
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="0.825"
-        android:layout_height="0dp"/>
+        tools:listitem="@layout/music_row" />
 
-    <com.google.android.exoplayer2.ui.PlayerView
-        android:background="@color/colorAccent"
-        android:padding="20dp"
-        android:id="@+id/music_list_player"
+    <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="0.1"
-        android:layout_height="0dp"/>
+        >
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/music_list_player"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
 
 </LinearLayout>

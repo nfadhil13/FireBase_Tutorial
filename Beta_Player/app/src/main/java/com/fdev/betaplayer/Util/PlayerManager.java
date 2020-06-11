@@ -10,13 +10,5 @@ import java.util.ArrayList;
 public class PlayerManager {
 
 
-    private static final String TAG = "ExoPlayerManager";
-    private static PlayerManager mInstance = null;
-    PlayerView mPlayerView;
-    DefaultDataSourceFactory dataSourceFactory;
-    String uriString = "";
-    ArrayList<String> mPlayList = null;
-    Integer playlistIndex = 0;
-    CallBacks.playerCallBack listner;
-    private SimpleExoPlayer mPlayer;
+
 }
